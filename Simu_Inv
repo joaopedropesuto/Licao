@@ -1,0 +1,56 @@
+opcao = 's'
+while opcao == 's':
+    print("-------------------------------")
+    print("  Seja bem-vindo(a) ao Mybank  ")
+    print("    SIMULADOR DE EMPRÉSTIMO    ")
+    print("-------------------------------")
+
+    print("Titulos disponíveis: ")
+    print("1 - Tesouro Prefixado 2024")
+    print("2 - Tesouro Prefixado 2031")
+
+    qual = int(input("qual tesouro você quer simular um investimento? 1 ou 2: "))
+
+    valor = float(input("Digite o valor que você deseja investir: "))
+    aporte = int(input("Digite o valor do aporte mensal: "))
+
+    total = 0
+    IR = 0
+    B3 = 0
+    valor_liq = 0
+    if qual == 1:
+        valor_inv = valor + (aporte * 32)
+        anual = 32 // 12
+        lucro_bruto = ((valor_inv / 100) * (12.33)) * anual
+        valor_bruto = valor_inv + lucro_bruto
+        IR = (lucro_bruto / 100) * 15
+        B3 = (lucro_bruto /400) * anual
+        valor_liq = valor_bruto - IR - B3       
+    else:
+        valor_inv = valor + (aporte * 110)
+        anual = 110 // 12
+        lucro_bruto = ((valor_inv / 100) * (12.12)) * anual
+        valor_bruto = valor_inv + lucro_bruto
+        IR = (lucro_bruto / 100) * 15
+        B3 = (lucro_bruto / 400) * anual
+        valor_liq = valor_bruto - IR - B3
+
+    print("-------------------------------")
+    print("   RESULTADO DA SIMULAÇÃO      ")
+    print("-------------------------------")
+    print("Valor inicial investido: ", valor)
+    print("Aportes de",aporte,"por 32 meses")
+    print("Valor total investido ",valor_inv)
+    print("-------------------------------")
+    print("Valor bruto: ", valor_bruto)
+    print("I.R.: ",IR)
+    print("Taxa de B3: ",B3)
+    print("Valor líquido: ",valor_liq)
+    print("-------------------------------")
+
+    opcao = str(input("Deseja realizar outra simulação? s/n "))
+
+    if opcao == 'n':
+        break
+
+print("Programa encerrado")
