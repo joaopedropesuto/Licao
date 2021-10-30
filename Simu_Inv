@@ -28,8 +28,8 @@ while opcao == 's':
         valor_liq = valor_bruto - IR - B3       
     else:
         valor_inv = valor + (aporte * 110)
-        anual = 110 // 12
-        lucro_bruto = ((valor_inv / 100) * (12.12)) * anual
+        anual = 50 // 12
+        lucro_bruto = ((valor_inv / 100) * (12.21)) * anual
         valor_bruto = valor_inv + lucro_bruto
         IR = (lucro_bruto / 100) * 15
         B3 = (lucro_bruto / 400) * anual
