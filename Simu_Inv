@@ -7,7 +7,7 @@ while opcao == 's':
 
     print("Titulos disponíveis: ")
     print("1 - Tesouro Prefixado 2024")
-    print("2 - Tesouro Prefixado 2031")
+    print("2 - Tesouro Prefixado 2026")
 
     qual = int(input("qual tesouro você quer simular um investimento? 1 ou 2: "))
 
@@ -19,16 +19,18 @@ while opcao == 's':
     B3 = 0
     valor_liq = 0
     if qual == 1:
-        valor_inv = valor + (aporte * 32)
-        anual = 32 // 12
+        meses = 32
+        valor_inv = valor + (aporte * meses)
+        anual = meses // 12
         lucro_bruto = ((valor_inv / 100) * (12.33)) * anual
         valor_bruto = valor_inv + lucro_bruto
         IR = (lucro_bruto / 100) * 15
         B3 = (lucro_bruto /400) * anual
         valor_liq = valor_bruto - IR - B3       
     else:
-        valor_inv = valor + (aporte * 110)
-        anual = 50 // 12
+        meses = 50
+        valor_inv = valor + (aporte * meses)
+        anual = meses // 12
         lucro_bruto = ((valor_inv / 100) * (12.21)) * anual
         valor_bruto = valor_inv + lucro_bruto
         IR = (lucro_bruto / 100) * 15
@@ -39,7 +41,7 @@ while opcao == 's':
     print("   RESULTADO DA SIMULAÇÃO      ")
     print("-------------------------------")
     print("Valor inicial investido: ", valor)
-    print("Aportes de",aporte,"por 32 meses")
+    print("Aportes de",aporte,"por",meses,"meses")
     print("Valor total investido ",valor_inv)
     print("-------------------------------")
     print("Valor bruto: ", valor_bruto)
